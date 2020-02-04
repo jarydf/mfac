@@ -1,21 +1,7 @@
 <?php
-require('../../backend/fpdf.php');
-
-$host = "localhost";
-$database = "mfac";
-$user = "root";
-$password = "";
-
-$connection = mysqli_connect($host, $user, $password, $database);
-
-$error = mysqli_connect_error();
-if($error != null)
-{
-  $output = "<p>Unable to connect to database!</p>";
-  exit($output);
-}
-else
-{
+require('./fpdf.php');
+include "connection.php";
+if($_SERVER["REQUEST_METHOD"]=="POST"){
     //variable list
     $gender=(isset($_POST['gender']) ? $_POST['gender'] : null);
     $age=(isset($_POST['age']) ? $_POST['age'] : null);
@@ -247,13 +233,15 @@ else
         $pdf->MultiCell(180, 10, $row['primaryTarget']);
 
         $pdf->AddPage();
-
-        //  }
     }
     mysqli_free_result($results);
+  }
+  else{
+  header("Location: ./Login.php");
+}
     mysqli_close($connection);
     $pdf->Output();
-}
+
 function isZero($value)
 {
     if (!is_array($value)) {

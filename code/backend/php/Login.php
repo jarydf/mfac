@@ -1,21 +1,24 @@
+<?php
+include 'connection.php';
+session_start();
+echo '
 <!DOCTYPE html>
 <html>
 <head lang="en">
   <title>Mapping For A Change</title>
-  <link rel="stylesheet" href="../css/Login.css">
+  <link rel="stylesheet" href="../../frontend/css/Login.css">
   <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
   <script src="../js/jquery-3.1.1.min.js"></script>
-  <script type="text/javascript" src="../js/Login.js"></script>
+  <script type="text/javascript" src="../../frontend/js/Login.js"></script>
 </head>
 <body>
   <header>
     <h1>Login</h1>
   </header>
   <main>
-    <form method = "post" action="Login.php">
-      <label>Username</label>
-
-      <input type="text" name="Username" value="">
+    <form method = "post" action="./LoginAction.php">
+      <label>Email</label>
+      <input type="text" name="email" value="">
     <br>
     <label>Password</label>
       <input type="password" name="password" value="">
@@ -29,3 +32,6 @@
   </footer>
 </body>
 </html>
+';
+
+ ?>

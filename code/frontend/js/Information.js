@@ -4,8 +4,6 @@ $(document).ready(function(){
     if(Email==""){
       $("#Email").css("background-color","red");
       event.preventDefault();
-
-
     }
 });
 });
